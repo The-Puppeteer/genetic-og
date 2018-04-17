@@ -45,6 +45,10 @@ public class Individuals {
         this.w = w;
         this.l = l;
     }
+    
+    public void step(){
+        //where the motion and movement equations would go
+    }
     //create the vehicles and their sensors and properties
         void paint(Graphics g) {
         g.drawRect(this.x, this.y, this.w, this.l);
