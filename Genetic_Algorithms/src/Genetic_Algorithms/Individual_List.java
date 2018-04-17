@@ -1,6 +1,5 @@
 package Genetic_Algorithms;
 
-import java.awt.Graphics;
 import java.util.ArrayList;
 
 /**
@@ -13,8 +12,8 @@ public class Individual_List extends ArrayList<Individual> {
     {
         String returnMe="PLIST:";
         
-        for (Individual nextPend : this) {
-            returnMe += "\n\t" + nextPend.toString();
+        for (Individual nextIndiv : this) {
+            returnMe += "\n\t" + nextIndiv.toString();
         }
         
         return returnMe;
