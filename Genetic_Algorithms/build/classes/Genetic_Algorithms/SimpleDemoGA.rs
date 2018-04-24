@@ -1,4 +1,0 @@
-Genetic_Algorithms.Demo_Example
-Genetic_Algorithms.Population
-Genetic_Algorithms.SimpleDemoGA
-Genetic_Algorithms.Individual

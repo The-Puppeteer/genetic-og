@@ -8,19 +8,22 @@ import static java.lang.Thread.sleep;
 class Controller extends Thread {
     boolean running = false;
     Individuals theIndividual;
-    
+    Graphics g;
     private final Genetic_Panel thePanel;
     
     Controller(Genetic_Panel thePanel, Individuals p) {
         this.thePanel = thePanel;
         theIndividual = p;
     }
-
+int i =0;
     public void run() {
         for(;;) {
             if (running) {
-                theIndividual.step();
+                theIndividual.step(i);
                 thePanel.repaint();
+                i++;
+//                System.out.println(theIndividual.getChromosome().get(i));
+//                System.out.println(i);
             }
             delay();
         }
