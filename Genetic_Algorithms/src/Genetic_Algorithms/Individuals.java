@@ -29,16 +29,22 @@ public class Individuals {
     
     public Individuals(){
         //constructor
-        chromosome.add(0);
+        ranChrom();
+    }
+    
+    public void ranChrom(){
+       this.chromosome.add(ThreadLocalRandom.current().nextInt(0, 7 + 1));
         
         for(int i=0;i<1000;)
         {
             
-            
-            
+            //System.out.println(this.chromosome.get(i));
+            int z = direction(this.chromosome.get(i));
             //int randomNum = ThreadLocalRandom.current().nextInt(0, 7 + 1);
-            
-            chromosome.add(direction(i));
+            for(int j = 0; j < 1;){
+            this.chromosome.add(z);
+            ++j;
+            }
             ++i;
         }
 //        System.out.println("list = " + chromosome);
@@ -47,20 +53,22 @@ public class Individuals {
 
     public int direction(int i){
         int dir = 0;
-        int d = chromosome.get(i);
+        int d = i;
+        //int[] intArray = {d, d, d};
             if(d != 0 && d != 7){
                 int[] intArray = {d-1, d, d+1}; 
                 int idx = new Random().nextInt(intArray.length);
                 dir = intArray[idx];
+            
             }if(d == 0){
-                int[] intArray = {7, 0, 1}; 
+                int[] intArray = {d+7, d, d+1}; 
                 int idx = new Random().nextInt(intArray.length);
                 dir = intArray[idx];
             }if(d == 7){
-                int[] intArray = {6,7,0}; 
+                int[] intArray = {d-1,d,d-7}; 
                 int idx = new Random().nextInt(intArray.length);
                 dir = intArray[idx];
-            }
+          }
                
         
         return dir;
@@ -76,14 +84,15 @@ public class Individuals {
     
     public void step(int i){
         //for(int i = 0; i < 1000;){
-            System.out.println("X before transformation: " + this.x);
+           // System.out.println("X before transformation: " + this.x);
             int x1= (int) (this.x + Math.cos(angle(i))*3);
             int y1= (int) (this.y + Math.sin(angle(i))*3);
             this.x = x1;
             this.y = y1;    
-            System.out.println("Angle value: " + angle(i));
-            System.out.println("X1 value: " + x1);
-            System.out.println("X after transformation: " + this.x);
+//            System.out.println("Gene" + this.chromosome.get(i));
+            //System.out.println("Angle value: " + angle(i));
+//            System.out.println("X1 value: " + x1);
+//            System.out.println("X after transformation: " + this.x);
             g.drawRect(x1, y1, this.w, this.l);
            // ++i;
         //}
@@ -122,12 +131,12 @@ public class Individuals {
         
         //chromosome storage and retrieval methods
         public List<Integer> setChromosome(List<Integer> c){
-            chromosome = c;
+            this.chromosome = c;
             return c;
         }
         
         public List<Integer> getChromosome(){
-            return chromosome; 
+            return this.chromosome; 
         }
         
     public int getX() {
@@ -169,7 +178,7 @@ public class Individuals {
 //    public void setL(double l) {
 //        this.l = l;
 //    }
-    
+
     public String toString() {
         String returnMe = "Indiv: ";
         returnMe += "\tx=" + getX();
@@ -179,6 +188,6 @@ public class Individuals {
         returnMe += " l=" + getL();
         return returnMe;
     } // toString()
-    
+
     //still need sensors and accurate drawings and locations for the individuals
 }

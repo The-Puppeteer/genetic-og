@@ -1,28 +1,34 @@
 package Genetic_Algorithms;
 
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 /**
  *
  * @author Connor McGuigan
  */
 public class Genetic_Panel extends javax.swing.JPanel {
-
+    int indNum = 10;
     Controller theController;
-    
+    Individuals individuals;
     public Genetic_Panel() {
         initComponents();
-        theController = new Controller(this, new Individuals(300, 200, 3, 30, 30));
-        theController.start();
+        theController = new Controller(this,indNum);
+        theController.start();        
         setLayout(null);
         setVisible(true);
     }
     
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        theController.paint(g);
+        for(int i = 0; i <indNum;++i){
+        theController.paint(g,i);
+        }
+//        for(int i = 0; i <2;++i){
+//        theController.individuals[i].paint(g);
+//        }
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
