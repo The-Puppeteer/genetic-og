@@ -18,7 +18,9 @@ public class Individuals {
     protected double d;
     protected int w;
     protected int l;
+    Obstacles a;
     Graphics g;
+    List<Double> min = new ArrayList<>();
     List<Integer> chromosome = new ArrayList<Integer>();
     protected Point2D.Double location;
         
@@ -73,13 +75,14 @@ public class Individuals {
         
         return dir;
     }
-    public Individuals(int x, int y, double d, int w, int l) {
+    public Individuals(int x, int y, double d, int w, int l, Obstacles a) {
         this();   // invoke the default constructor
         this.x = x;
         this.y = y;
         this.d = d;
         this.w = w;
         this.l = l;
+        this.a = a;
     }
     
     public void step(int i){
@@ -99,6 +102,23 @@ public class Individuals {
 
     }
     
+    public double minDist(){
+        double minDist=this.min.get(0);
+        for(int i = 0; i<this.min.size();++i){
+            if(this.min.get(i)<minDist){
+                minDist = this.min.get(i);
+            }
+        }
+        return minDist;
+        
+    }
+    public void distList(Obstacles a){
+        double x2 = a.getX();
+        double y2 = a.getY();
+        double dist = Math.sqrt(Math.pow(this.x - x2,2) + Math.pow(this.y - y2, 2));
+        this.min.add(dist);
+        
+    }
     public double angle(int i){
         int chromVal = this.chromosome.get(i);
         int ang = 0;

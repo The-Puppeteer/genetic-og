@@ -13,7 +13,9 @@ public class Individual_List extends ArrayList<Individuals> {
         String returnMe="PLIST:";
         
         for (Individuals nextIndiv : this) {
-            returnMe += "\n\t" + nextIndiv.toString();
+            int i = 0;
+            returnMe += "\n\t" + nextIndiv.toString() + i;
+            ++i;
         }
         
         return returnMe;

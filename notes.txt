@@ -1,0 +1,8 @@
+Population class
+	contains list of creatures
+JFrame
+JPanel
+Controller
+Creature
+	sensor stuff and creature 
+
