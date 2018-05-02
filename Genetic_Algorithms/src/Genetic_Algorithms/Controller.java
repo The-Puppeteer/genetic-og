@@ -64,6 +64,7 @@ class Controller extends Thread {
                     System.out.println("fittest: " + fittest());
                     System.out.println("second fit: " + secondFittest());
                     crossover();
+                    newColor();
                     repaint();
                     ++genNum;
                     thePanel.jLabel1.setText(Integer.toString(genNum));
@@ -116,7 +117,11 @@ class Controller extends Thread {
         }
         
     }
-    
+    void newColor(){
+        for (int i = 0; i < indNum; ++i) {
+            iList.get(i).newColor();
+        }
+}
     void toggleRunning() {
         running = !running;
         
@@ -141,7 +146,7 @@ class Controller extends Thread {
 
     private void delay() {
         try {
-            sleep(20);
+            sleep(25);
         } catch (Exception e){}
     }
     
@@ -151,7 +156,7 @@ class Controller extends Thread {
     
     
     public Individuals fittest(){
-        Individuals a = new Individuals();
+        //Individuals a = new Individuals();
         double min = iList.get(0).minDist();
         for (int i = 0; i < indNum; ++i) {
             this.distList.add(iList.get(i).minDist());
@@ -162,17 +167,17 @@ class Controller extends Thread {
         for (int i = 0; i < this.distList.size(); ++i) {
             if(this.distList.get(i)<min) {
                 min = this.distList.get(i);
-                a = iList.get(i);
+                this.fittestIndividual = iList.get(i);
             }
             
         }
         
-        this.fittestIndividual = a;
-        return a;
+        return this.fittestIndividual;
+        
     }
     
     public Individuals secondFittest(){
-        Individuals b = new Individuals();
+        //Individuals b = new Individuals();
         double min = iList.get(0).minDist();//current minimim value for individual i
         
 //        for (int i = 0; i < indNum; ++i) {
@@ -187,15 +192,15 @@ System.out.println(this.distList);
             if(this.distList.get(i)<min && this.distList.get(i) > this.fittestIndividual.minDist() ) {
                 
                   min = this.distList.get(i);
-                    b = iList.get(i);  
+                    this.secondFittestIndividual = iList.get(i);  
                 
                 
             }
             
         }
         this.distList.clear();
-        this.secondFittestIndividual = b;
-        return b;
+        return this.secondFittestIndividual;
+        
     }
     public void crossover(){
         int crossPoint; 

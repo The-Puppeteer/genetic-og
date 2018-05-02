@@ -1,5 +1,6 @@
 package Genetic_Algorithms;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
@@ -22,6 +23,9 @@ public class Individuals {
     protected int w1;
     protected int l;
     protected int l1;
+    int r = (int) (Math.random()*255);
+        int green = (int) (Math.random()*255);
+        int b = (int) (Math.random()*255);
     Obstacles a;
     Graphics g;
     List<Double> min = new ArrayList<>();
@@ -91,10 +95,12 @@ public class Individuals {
         this.l1 = l;
         this.l = l;
         this.a = a;
+        
     }
     public void repaint(){ 
         this.x = this.x1; this.y = this.y1; this.w = this.w1; this.l = this.l1;
         g.drawRect(this.x1, this.y1, this.w1, this.l1);
+        
     }
     public void step(int i){
         //for(int i = 0; i < 1000;){
@@ -107,7 +113,9 @@ public class Individuals {
             //System.out.println("Angle value: " + angle(i));
 //            System.out.println("X1 value: " + x1);
 //            System.out.println("X after transformation: " + this.x);
+
             g.drawRect(x1, y1, this.w, this.l);
+            
            // ++i;
         //}
 
@@ -122,6 +130,12 @@ public class Individuals {
         }
         return minDist;
         
+    }
+    
+    public void newColor(){
+        this.r = (int) (Math.random()*255);
+        this.green = (int) (Math.random()*255);
+        this.b = (int) (Math.random()*255);
     }
     public void distList(Obstacles a){
         double x2 = a.getX();
@@ -156,7 +170,11 @@ public class Individuals {
     }
     //create the vehicles and their sensors and properties
         void paint(Graphics g) {
+            
             this.g = g;
+            Color randColor = new Color(this.r,this.green,this.b);
+        g.setColor(randColor);
+        g.fillRect(x, y, w, l);
             g.drawRect(this.x, this.y, this.w, this.l);
     }
         

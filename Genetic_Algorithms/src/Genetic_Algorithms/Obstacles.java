@@ -1,5 +1,6 @@
 package Genetic_Algorithms;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 public class Obstacles {
@@ -10,8 +11,10 @@ public class Obstacles {
     }
     
     public void paintGoal(int x, int y, int w, int h, Graphics g){
-        g.draw3DRect(x, y, h, h, true);
-        g.fill3DRect(x, y, h, h, true);
+        g.fillRect(x, y, h, h);
+        g.setColor(Color.black);
+        g.drawRect(x, y, h, h);
+        
         this.x = x;
         this.y=y;
     }
