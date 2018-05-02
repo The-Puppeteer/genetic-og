@@ -5,10 +5,10 @@ import java.awt.Graphics2D;
 
 /**
  *
- * @author Connor McGuigan
+ * @author Connor, Dalton, Chris
  */
 public class Genetic_Panel extends javax.swing.JPanel {
-    int indNum = 10;
+    int indNum = 50;
     Controller theController;
     Individuals individuals;
     public Genetic_Panel() {
@@ -18,6 +18,7 @@ public class Genetic_Panel extends javax.swing.JPanel {
         setLayout(null);
         setVisible(true);
     }
+    
     
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -34,6 +35,8 @@ public class Genetic_Panel extends javax.swing.JPanel {
     private void initComponents() {
 
         go_button = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setLayout(null);
 
@@ -44,15 +47,35 @@ public class Genetic_Panel extends javax.swing.JPanel {
             }
         });
         add(go_button);
-        go_button.setBounds(40, 30, 45, 23);
+        go_button.setBounds(40, 30, 50, 25);
+
+        jButton1.setText("Next Generation");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        add(jButton1);
+        jButton1.setBounds(100, 30, 130, 25);
+
+        jLabel1.setText("jLabel1");
+        add(jLabel1);
+        jLabel1.setBounds(240, 40, 44, 15);
     }// </editor-fold>//GEN-END:initComponents
 
     private void go_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_go_buttonActionPerformed
         theController.toggleRunning();
     }//GEN-LAST:event_go_buttonActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        theController.toggleNG();
+        theController.repaint();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton go_button;
+    private javax.swing.JButton jButton1;
+    public javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

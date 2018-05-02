@@ -13,7 +13,7 @@ public class Genetic_Frame extends javax.swing.JFrame {
         setTitle("My Genetic_Algorithm Panel");
         thePanel = new Genetic_Panel();
         add(thePanel);
-        setBounds(200,200,500,500);
+        setBounds(0,0,1000,500);
         setVisible(true);
     }
 

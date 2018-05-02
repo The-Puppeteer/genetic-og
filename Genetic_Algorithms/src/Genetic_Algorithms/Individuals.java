@@ -14,10 +14,14 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Individuals {
     
     protected int x;
+    protected int x1;
     protected int y;
+    protected int y1;
     protected double d;
     protected int w;
+    protected int w1;
     protected int l;
+    protected int l1;
     Obstacles a;
     Graphics g;
     List<Double> min = new ArrayList<>();
@@ -78,13 +82,20 @@ public class Individuals {
     public Individuals(int x, int y, double d, int w, int l, Obstacles a) {
         this();   // invoke the default constructor
         this.x = x;
+        this.x1 = x;
+        this.y1 = y;
         this.y = y;
         this.d = d;
+        this.w1 = w;
         this.w = w;
+        this.l1 = l;
         this.l = l;
         this.a = a;
     }
-    
+    public void repaint(){ 
+        this.x = this.x1; this.y = this.y1; this.w = this.w1; this.l = this.l1;
+        g.drawRect(this.x1, this.y1, this.w1, this.l1);
+    }
     public void step(int i){
         //for(int i = 0; i < 1000;){
            // System.out.println("X before transformation: " + this.x);
@@ -106,7 +117,7 @@ public class Individuals {
         double minDist=this.min.get(0);
         for(int i = 0; i<this.min.size();++i){
             if(this.min.get(i)<minDist){
-                minDist = this.min.get(i);
+                minDist = Math.abs(this.min.get(i));
             }
         }
         return minDist;
@@ -209,5 +220,5 @@ public class Individuals {
         return returnMe;
     } // toString()
 
-    //still need sensors and accurate drawings and locations for the individuals
+
 }
