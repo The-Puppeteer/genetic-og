@@ -6,6 +6,8 @@ import java.awt.Graphics;
 public class Obstacles {
     int x;
     int y;
+    int w;
+    int h;
     public Obstacles(){
         
     }
@@ -17,6 +19,8 @@ public class Obstacles {
         
         this.x = x;
         this.y=y;
+        this.w = w;
+        this.h = h;
     }
     
     public double distance(Individuals a){
@@ -32,6 +36,14 @@ public class Obstacles {
 
     public int getY() {
         return y;
+    }
+    
+    public int getW() {
+        return w;
+    }
+    
+    public int getH() {
+        return h;
     }
     
 }

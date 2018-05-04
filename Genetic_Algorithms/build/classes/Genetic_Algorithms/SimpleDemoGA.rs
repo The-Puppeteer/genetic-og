@@ -1,6 +1,0 @@
-SimpleDemoGA
-Individual
-Genetic_Algorithms.Population
-Population
-Genetic_Algorithms.SimpleDemoGA
-Genetic_Algorithms.Individual
