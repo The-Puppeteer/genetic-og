@@ -10,7 +10,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 /**
  *
- * @author Connor McGuigan Apr 9, 2018 7:02:06 PM
+ * @authors Connor, Dalton, Chris
  */
 public class Individuals {
 

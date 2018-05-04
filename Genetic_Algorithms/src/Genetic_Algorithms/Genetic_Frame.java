@@ -2,7 +2,7 @@ package Genetic_Algorithms;
 
 /**
  *
- * @author Connor McGuiganApr 5, 20181:38:24 PM
+ * @authors Connor, Dalton, Chris
  */
 public class Genetic_Frame extends javax.swing.JFrame {
 
