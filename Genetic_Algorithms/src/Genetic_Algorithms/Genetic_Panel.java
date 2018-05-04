@@ -37,6 +37,8 @@ public class Genetic_Panel extends javax.swing.JPanel {
         go_button = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -63,9 +65,17 @@ public class Genetic_Panel extends javax.swing.JPanel {
         add(jButton1);
         jButton1.setBounds(100, 30, 130, 25);
 
-        jLabel1.setText("jLabel1");
+        jLabel1.setText("Generation Number: 1");
         add(jLabel1);
         jLabel1.setBounds(240, 40, 160, 15);
+
+        jLabel2.setText("Fittest Individual Score:");
+        add(jLabel2);
+        jLabel2.setBounds(240, 70, 280, 15);
+
+        jLabel3.setText("2nd Fittest Individual Score:");
+        add(jLabel3);
+        jLabel3.setBounds(240, 90, 310, 15);
     }// </editor-fold>//GEN-END:initComponents
 
     private void go_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_go_buttonActionPerformed
@@ -92,5 +102,7 @@ public class Genetic_Panel extends javax.swing.JPanel {
     private javax.swing.JButton go_button;
     private javax.swing.JButton jButton1;
     public javax.swing.JLabel jLabel1;
+    public javax.swing.JLabel jLabel2;
+    public javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }

@@ -15,6 +15,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Individuals {
 
     protected int x;
+    protected double fitness;
     protected int x1;
     protected int indNum;
     protected int y;
@@ -40,6 +41,9 @@ public class Individuals {
     public Individuals() {
         //constructor
         ranChrom();
+    }
+    public void setFitness(double fitness){
+        this.fitness = fitness;
     }
 
     public void ranChrom() {

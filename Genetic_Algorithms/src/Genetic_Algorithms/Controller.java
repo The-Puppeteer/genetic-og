@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import static java.lang.Thread.sleep;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -48,7 +49,7 @@ class Controller extends Thread {
         this.runIndex = 0;
         genNum = 1;
 
-        thePanel.jLabel1.setText("Generation Number " + Integer.toString(genNum));
+        thePanel.jLabel1.setText("Generation Number: " + Integer.toString(genNum));
 
 //        this.d1 = goal.distance(iList.get(1));
 //        System.out.println(d1);
@@ -144,7 +145,9 @@ fitness();
         newColor();
         repaint();
         ++this.genNum;
-        thePanel.jLabel1.setText("Generation Number " + Integer.toString(genNum));
+        thePanel.jLabel1.setText("Generation Number: " + Integer.toString(genNum));
+        thePanel.jLabel2.setText("Fittest Individual Score: " + fittestIndividual.fitness );
+        thePanel.jLabel3.setText("2nd Fittest Individual Score: " + secondFittestIndividual.fitness );
         this.runIndex = 0;
     }
 
@@ -224,6 +227,8 @@ fitness();
                 maxFitIndex = i;
                         
 fittestIndividual = iList.get(maxFitIndex);
+fittestIndividual.setFitness(maxFit);
+                
             }
         }
         this.distList.clear();
@@ -266,8 +271,10 @@ fittestIndividual = iList.get(maxFitIndex);
                 maxFit2 = i;
             }
         }
+        this.secondFittestIndividual.setFitness(distList.get(maxFit2));
         this.distList.clear();
         this.secondFittestIndividual = iList.get(maxFit2);
+        
         //  System.out.println(distList);
         return this.secondFittestIndividual;
         //return individuals[maxFit2];
